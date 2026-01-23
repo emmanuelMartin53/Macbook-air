@@ -1,9 +1,9 @@
-import React from 'react';
 
-function App() {
+
+const App = () => {
   return (
     <div>
-      <a href="https://reactjs.org">Learn React</a>
+      <h1>Hello World</h1>
     </div>
   );
 }
