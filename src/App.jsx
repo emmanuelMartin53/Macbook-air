@@ -1,9 +1,11 @@
-
+import Header from "./components/Header"
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="container">
+      <div className="bg row d-flex pb-5">
+      <Header />
+      </div>
     </div>
   );
 }
