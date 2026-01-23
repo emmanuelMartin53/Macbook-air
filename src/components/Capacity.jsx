@@ -1,25 +1,34 @@
 import CapacityWrapper from "./CapacityWrapper";
 import {useState, useEffect} from "react"
+import axios from "axios";
 
 
 const Capacity = ({capacityType}) => {
-
 
   const [items, setItems] = useState([])
   console.log(items)
 
   useEffect(() => {
-    fetch(`http://localhost:3030/${capacityType}`)
+  //   fetch(`http://localhost:3030/${capacityType}`)
+  //   .then((response) => {
+  //     return response.json()
+  //   })
+  //   .then((data) => {
+  //     setItems(data)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  // },[capacityType])
+  axios.get(`http://localhost:3030/${capacityType}`)
     .then((response) => {
-      return response.json()
-    })
-    .then((data) => {
-      setItems(data)
+      setItems(response.data)
     })
     .catch((error) => {
       console.log(error)
     })
-  },[capacityType])
+
+},[capacityType])
 
   return (
     <div>
