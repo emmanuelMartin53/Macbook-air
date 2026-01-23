@@ -1,20 +1,14 @@
-import { useState } from "react";
+import Header from "./components/Header"
+import Configuration from "./components/Configuration";
 
-
-
-function App() {
-
-  const [value, setValue] = useState("Bonjour")
-
+const App = () => {
   return (
-    <div>
-      <h1>Hello World</h1>
-      <input
-        type="text"
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-      />
+    <div className="container">
+      <div className="bg row d-flex pb-5">
+      <Header />
+      <Configuration />
 
+      </div>
     </div>
   );
 }

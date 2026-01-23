@@ -12,6 +12,7 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
   },
