@@ -14,7 +14,7 @@ const SsdCapacities = ({id, label , price, selectedSsd ,handleSsdChangeFunc}) =>
         onChange={handleSsdChangeFunc}
       />
       <label className="form-check-label" htmlFor={id}>
-          {label} {`(${displayPrice(price)})`}
+          {label} {`${displayPrice(price)}`}
       </label>
 
     </div>
