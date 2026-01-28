@@ -3,13 +3,15 @@ import {useState, useEffect} from "react"
 import RamCapacities from "./RamCapacities";
 import SsdCapacities from "./SsdCapacities";
 import axios from "axios";
+import AlertNotification from "./AlertNotification";
 
 
 const Capacity = ({capacityType}) => {
 
-  const [items, setItems] = useState([])
-  const [ssd, setSsd] = useState(0)
-  console.log(items)
+  const [items, setItems] = useState([]);
+  const [ssd, setSsd] = useState(0);
+  const [error, setError] = useState(false)
+
 
   const handleSsdChange = (event) => {
     return setSsd(+event.target.value)
@@ -32,10 +34,15 @@ const Capacity = ({capacityType}) => {
       setItems(response.data)
     })
     .catch((error) => {
-      console.log(error)
+      setError("Error")
     })
 
 },[capacityType])
+
+
+  if (error) {
+    return <AlertNotification />
+  }
 
   return (
     <div>

@@ -42,5 +42,11 @@ describe("Vérifier les capacités RAM et SSD", () => {
 
     // 3 more inputs
     const otherRadioInputs = await screen.findAllByRole("radio", {name: /.*\u20AC\)/}) //€)
+    expect(otherRadioInputs).toHaveLength(3)
+
+    // All prices
+
+    const priceRadioInputs = otherRadioInputs.map((input) => input.value)
+    expect(priceRadioInputs).toEqual(["250", "500", "1000"])
   })
 })
