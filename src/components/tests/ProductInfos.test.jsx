@@ -1,16 +1,21 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from "../../test-utils";
 import { describe, test, expect } from 'vitest'; // ESLint reconnaît test/expect
 
 import ProductInfos from '../ProductInfos';
+import MacBookProviders from '../../providers/MacBookProviders';
 
 
 describe("Elements render of productInfos", () => {
   test("Image render correctly", () => {
+
+    // render(<ProductInfos />, {wrapper: MacBookProviders})
     render(<ProductInfos />)
+
     const imgElement = screen.getByAltText(/macBook-air/i);
     expect(imgElement).toBeInTheDocument()
   })
   // Nom du produit
+
    test("h5 render correctly", () => {
     render(<ProductInfos />)
     const h5Element = screen.getByRole("heading", {name: /macBook Air - gris sidéral/i, level: 5});
@@ -18,6 +23,7 @@ describe("Elements render of productInfos", () => {
     expect(h5Element).toHaveClass("mt-4")
   })
   // Prix
+
    test("h4 render correctly", () => {
     render(<ProductInfos />)
     const h4Element = screen.getByRole("heading", { level: 4});
@@ -27,6 +33,7 @@ describe("Elements render of productInfos", () => {
   })
 
   // Heading
+
   test("h3 render correctly", () => {
     render(<ProductInfos />)
     const titleDescription = screen.getByRole("heading", {level: 3, name: /personnalisez votre macBook Air - gris sidéral/i});
@@ -34,12 +41,14 @@ describe("Elements render of productInfos", () => {
   })
 
   // ul
+
   test("ul render correctly", () => {
     render(<ProductInfos />)
     const productInfoList = screen.getByRole("list");
     expect(productInfoList).toHaveClass("list-unstyled mt-4")
   })
   // 10 <li>
+
   test("li render correctly", () => {
     render(<ProductInfos />)
     const productInfoItems = screen.getAllByRole("listitem");

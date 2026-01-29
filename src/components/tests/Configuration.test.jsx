@@ -1,9 +1,10 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import { describe, test, expect } from 'vitest'; // ESLint reconnaît test/expect
+import { render, screen, waitFor } from '../../test-utils';
+import { test, expect } from 'vitest'; // ESLint reconnaît test/expect
 import { server } from '../../mocks/server';
 import { http, HttpResponse } from 'msw'
 
 import Configuration from "../Configuration"
+import MacBookProviders from '../../providers/MacBookProviders';
 
 test("Gestion des erreurs RAM et SSD", async () => {
   server.resetHandlers(
@@ -22,6 +23,7 @@ test("Gestion des erreurs RAM et SSD", async () => {
     })
   )
 
+  // render(<Configuration />, { wrapper: MacBookProviders })
   render(<Configuration />)
 
   // BootstrapAlert
@@ -33,8 +35,16 @@ test("Gestion des erreurs RAM et SSD", async () => {
   // expect(alert).toHaveLength(2)
 
 
+  // SITUATION 1
+
+  // screen.debug()
+
   await waitFor( async () => {
     const alert = await screen.findAllByRole("alert");
     expect(alert).toHaveLength(2)
   })
+
+  // SITUATION 2
+
+  // screen.debug()
 })

@@ -1,8 +1,10 @@
 import macBookAir from "../images/macbook-air.jpeg"
 
-import React from 'react'
+import useAndCheckMacBookDetails from "../providers/useAndCheckMacBookDetails"
 
 const ProductInfos = () => {
+  const {productInfos} = useAndCheckMacBookDetails()
+
   return (
     <div className="row">
       <div className="col-md-6 mt-3">
@@ -20,8 +22,8 @@ const ProductInfos = () => {
           <h3>Personnalisez votre MacBook Air - Gris sidéral</h3>
           <ul className="list-unstyled mt-4">
             <li>Puce Apple M4 avec CPU 10 coeurs, GPU 8 coeurs, Neural Engine 16 coeurs</li>
-            <li>16 Go de mémoire unifiée</li>
-            <li>SSD de 256Go</li>
+            <li>{productInfos.capacityRam} de mémoire unifiée</li>
+            <li>SSD de {productInfos.capacitySsd}</li>
             <li>Écran Liquid Retina 13,6 pouces avec True Tone</li>
             <li>Caméra 12MP Center Stage</li>
             <li>Port de charge MagSafe 3</li>
