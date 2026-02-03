@@ -5,7 +5,7 @@ import { MacbookContext } from "./context"
 const MacBookProviders = (props) => {
 
   const initialState = {
-    capacityRam: "16Go",
+    capacityRam: "16 Go",
     capacitySsd: "256Go"
   }
 

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../test-utils';
 import { describe, test, expect } from 'vitest'; // ESLint reconnaît test/expect
 
 import Capacity from '../Capacity';
@@ -49,4 +49,5 @@ describe("Vérifier les capacités RAM et SSD", () => {
     const priceRadioInputs = otherRadioInputs.map((input) => input.value)
     expect(priceRadioInputs).toEqual(["250", "500", "1000"])
   })
+
 })

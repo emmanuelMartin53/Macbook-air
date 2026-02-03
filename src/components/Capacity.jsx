@@ -18,17 +18,7 @@ const Capacity = ({capacityType}) => {
   }
 
   useEffect(() => {
-  //   fetch(`http://localhost:3030/${capacityType}`)
-  //   .then((response) => {
-  //     return response.json()
-  //   })
-  //   .then((data) => {
-  //     setItems(data)
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
-  // },[capacityType])
+  
   axios.get(`http://localhost:3030/${capacityType}`)
     .then((response) => {
       setItems(response.data)
