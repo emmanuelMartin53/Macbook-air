@@ -1,9 +1,11 @@
 import macBookAir from "../images/macbook-air.jpeg"
 
+
 import useAndCheckMacBookDetails from "../providers/useAndCheckMacBookDetails"
+import { formatPrice } from "../utilities"
 
 const ProductInfos = () => {
-  const {productInfos} = useAndCheckMacBookDetails()
+  const {productInfos, subTotal} = useAndCheckMacBookDetails()
 
   return (
     <div className="row">
@@ -13,7 +15,7 @@ const ProductInfos = () => {
             <img src={macBookAir} alt="macbook-air" className='img-fluid' />
           </div>
           <h5 className="mt-4">MacBook Air - Gris sidéral</h5>
-          <h4 className="green">1 099,00 €</h4>
+          <h4 className="green">{formatPrice(subTotal)} €</h4>
         </div>
       </div>
 

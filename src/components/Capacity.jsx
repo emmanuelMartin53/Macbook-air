@@ -4,6 +4,7 @@ import RamCapacities from "./RamCapacities";
 import SsdCapacities from "./SsdCapacities";
 import axios from "axios";
 import AlertNotification from "./AlertNotification";
+import useAndCheckMacBookDetails from "../providers/useAndCheckMacBookDetails";
 
 
 const Capacity = ({capacityType}) => {
@@ -12,13 +13,15 @@ const Capacity = ({capacityType}) => {
   const [ssd, setSsd] = useState(0);
   const [error, setError] = useState(false)
 
+ const {handleRamChange} = useAndCheckMacBookDetails()
+
 
   const handleSsdChange = (event) => {
     return setSsd(+event.target.value)
   }
 
   useEffect(() => {
-  
+
   axios.get(`http://localhost:3030/${capacityType}`)
     .then((response) => {
       setItems(response.data)
@@ -45,7 +48,7 @@ const Capacity = ({capacityType}) => {
                 name=""
                 id=""
                 aria-label="default select"
-                onChange={() => {}}
+                onChange={handleRamChange}
               >
                 {
                   items.map((capacity) => {
