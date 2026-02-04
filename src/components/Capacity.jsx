@@ -10,15 +10,17 @@ import useAndCheckMacBookDetails from "../providers/useAndCheckMacBookDetails";
 const Capacity = ({capacityType}) => {
 
   const [items, setItems] = useState([]);
-  const [ssd, setSsd] = useState(0);
+
   const [error, setError] = useState(false)
 
- const {handleRamChange} = useAndCheckMacBookDetails()
+  const {handleRamChange, handleSsdChange, productInfos} = useAndCheckMacBookDetails()
 
 
-  const handleSsdChange = (event) => {
-    return setSsd(+event.target.value)
-  }
+
+
+
+
+
 
   useEffect(() => {
 
@@ -73,7 +75,7 @@ const Capacity = ({capacityType}) => {
                       id={capacity.id}
                       label={capacity.label}
                       price={capacity.price}
-                      selectedSsd={ssd}
+                      selectedSsd={productInfos.inputSsd}
                       handleSsdChangeFunc={handleSsdChange}
                     />
                   )

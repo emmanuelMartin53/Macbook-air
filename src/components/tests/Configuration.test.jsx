@@ -83,6 +83,18 @@ describe("tests sur la es configurations", () => {
 
     expect(productPrice).toHaveTextContent("1 349,00 ")
 
+    // Changement RAM dans infos produits ("16 Go de mémoire unifiée" => "24 Go de mé<moie></moie>")
+    expect(ramCapacity).toHaveTextContent("24 Go de mémoire unifiée")
 
+    // Cocher 512Go de ssd
+
+    const inputSsd512 = await screen.findByLabelText("SSD de 512 Go", {exact: false})
+    expect(inputSsd512).toBeInTheDocument()
+
+    await user.click(inputSsd512)
+    expect(inputSsd512).toBeChecked()
+
+    // Revérifier que le prix du produit (1099 + 250 + 250 = 1599,00)
+    expect(productPrice).toHaveTextContent("1 599,00 ")
   });
 })
