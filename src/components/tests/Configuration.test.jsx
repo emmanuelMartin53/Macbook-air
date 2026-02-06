@@ -54,7 +54,7 @@ describe("tests sur la es configurations", () => {
     // 2) capacité Ram dans les infos Produits
     const ramCapacity = screen.getByText("16 Go de mémoire unifiée")
     // 3) Capacité SSD dans les infos produits
-    const ssdCapacity = screen.getByText("SSD de 256Go")
+    const ssdCapacity = screen.getByText("SSD de 256 Go")
 
     // Attendre que le select RAM soit affiché
     const selectElement = await screen.findByRole("combobox", {
@@ -99,5 +99,19 @@ describe("tests sur la es configurations", () => {
 
     // SSD de 256 Go => SSD de 512 Go
     expect(ssdCapacity).toHaveTextContent("SSD de 512 Go")
+
+    // retirer la RAM ajoutée
+    await user.selectOptions(selectElement, "0")
+    expect(selectElement.value).toBe("0")
+
+    const isSelected = screen.getByRole("option", {name: /16 Go de mémoire unifiée/i}).selected;
+    console.log(isSelected)
+    expect(isSelected).toBe(true)
+
+    // Verifier le pris suite à la modification
+    expect(productPrice).toHaveTextContent("1 349,00 ")
+
+    expect(ramCapacity).toHaveTextContent("16 Go de mémoire unifiée")
+
   });
 })

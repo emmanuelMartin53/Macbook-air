@@ -16,12 +16,6 @@ const Capacity = ({capacityType}) => {
   const {handleRamChange, handleSsdChange, productInfos} = useAndCheckMacBookDetails()
 
 
-
-
-
-
-
-
   useEffect(() => {
 
   axios.get(`http://localhost:3030/${capacityType}`)

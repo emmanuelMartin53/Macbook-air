@@ -72,7 +72,7 @@ describe("Elements render of productInfos", () => {
       expect(featureListItems).toEqual([
         "Puce Apple M4 avec CPU 10 coeurs, GPU 8 coeurs, Neural Engine 16 coeurs",
         "16 Go de mémoire unifiée",
-        "SSD de 256Go",
+        "SSD de 256 Go",
         "Écran Liquid Retina 13,6 pouces avec True Tone",
         "Caméra 12MP Center Stage",
         "Port de charge MagSafe 3",

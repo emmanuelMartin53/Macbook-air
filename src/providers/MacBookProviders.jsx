@@ -8,7 +8,7 @@ const MacBookProviders = (props) => {
   const initialState = {
     macBookAirPrice: 1099.0,
     capacityRam: "16 Go",
-    capacitySsd: "256Go",
+    capacitySsd: "256 Go",
     ram: 0,
     ssd: 0,
     inputSsd: 0
