@@ -96,5 +96,8 @@ describe("tests sur la es configurations", () => {
 
     // Revérifier que le prix du produit (1099 + 250 + 250 = 1599,00)
     expect(productPrice).toHaveTextContent("1 599,00 ")
+
+    // SSD de 256 Go => SSD de 512 Go
+    expect(ssdCapacity).toHaveTextContent("SSD de 512 Go")
   });
 })
