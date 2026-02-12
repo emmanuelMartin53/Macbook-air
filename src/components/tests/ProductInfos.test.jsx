@@ -6,7 +6,7 @@ import MacBookProviders from '../../providers/MacBookProviders';
 
 
 describe("Elements render of productInfos", () => {
-  test("Image render correctly", () => {
+  test("Tester les informations initiales du produit macbookAir", () => {
 
     // render(<ProductInfos />, {wrapper: MacBookProviders})
     render(<ProductInfos />)

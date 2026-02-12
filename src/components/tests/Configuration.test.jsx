@@ -20,25 +20,25 @@ beforeEach(() => {
 
 describe("tests sur la es configurations", () => {
 
-  // test("Gestion des erreurs RAM et SSD", async () => {
-  //   // Forcer une erreur serveur
-  //   server.resetHandlers(
-  //     http.get('http://localhost:3030/ram', () =>
-  //       HttpResponse.json({ message: 'Erreur serveur' }, { status: 500 })
-  //     ),
-  //     http.get('http://localhost:3030/ssd', () =>
-  //       HttpResponse.json({ message: 'Erreur serveur' }, { status: 500 })
-  //     )
-  //   );
+  test.skip("Gestion des erreurs RAM et SSD", async () => {
+    // Forcer une erreur serveur
+    server.resetHandlers(
+      http.get('http://localhost:3030/ram', () =>
+        HttpResponse.json({ message: 'Erreur serveur' }, { status: 500 })
+      ),
+      http.get('http://localhost:3030/ssd', () =>
+        HttpResponse.json({ message: 'Erreur serveur' }, { status: 500 })
+      )
+    );
 
-  //   render(<Configuration />, { wrapper: MacBookProviders });
+    render(<Configuration />, { wrapper: MacBookProviders });
 
-  //   // Vérifier que les alertes apparaissent
-  //   const alerts = await screen.findAllByRole("alert");
-  //   expect(alerts).toHaveLength(2);
-  //   expect(alerts[0]).toHaveTextContent(/Nous avons une erreur/i);
-  //   expect(alerts[1]).toHaveTextContent(/Nous avons une erreur/i);
-  // });
+    // Vérifier que les alertes apparaissent
+    const alerts = await screen.findAllByRole("alert");
+    expect(alerts).toHaveLength(2);
+    expect(alerts[0]).toHaveTextContent(/Nous avons une erreur/i);
+    expect(alerts[1]).toHaveTextContent(/Nous avons une erreur/i);
+  });
 
   // --------------------------
   // Test 2 : Vérifie select RAM et options
