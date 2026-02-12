@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { describe, test, expect, vi } from 'vitest'; // ESLint reconnaît test/expect
+import { describe, test, expect, it, vi } from 'vitest'; // ESLint reconnaît test/expect
 import userEvent from '@testing-library/user-event';
 
 
@@ -9,7 +9,7 @@ import Validation from '../Validation';
 
 describe("Composant Validation", () => {
     // "configurationStep" => "confirmationStep" => "cartStep"
-  test("Bouton 'Valider' s'affiche correctement", () => {
+  it("Bouton 'Valider' s'affiche correctement", () => { // test ou it => meme effet
     render(<Validation nextLevel="confirmationStep"/>)
     const buttonConfirmation = screen.getByRole("button", {name: /valider/i})
     expect(buttonConfirmation).toBeInTheDocument()
